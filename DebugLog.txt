@@ -1,0 +1,51 @@
+Saturday, 2nd may 
+
+Attributes of the classes decided.The concept of main game changed with respect to the board class (to have a single d array for moving the pieces and home array for each player) 
+
+Sunday, 3rd May 
+
+1.The concept of game again changed, no need for inherited classes of the board, will use the same board class for move and home board
+2.Constructors of classes made.
+3.Dice class completed for now
+4.Changed the Piece pointer to a vector of piece pointers in board class
+5.now also have to modify things according to it 
+6.The teams pointer in ludo game changed from pointer to vector array of teams
+7.Multiple definitions and use of undefined errors in class Board, Piece and Player
+8. Resolved those error by some forward declarations and by including and excluding some header files of board, piece etc
+
+Monday 4rth May
+
+1.Figured out that our moving array will be of size 13xNumber of Players
+As each player area block can be considered as 13 objects of move board	(Shawaze)
+2.Added an attribute of Number of Players in the LudoGame Class		
+3.Added a vector of player in ludogame class , it was needed to check the validity of piece during selection 
+and movement
+4. Changed the bool variable tc for changing turn to integer type for resolving the error of multiple kills 
+5.changed the input arguments of move, iskill, piece select function 
+
+wednesday 6th may 
+1. overloaded a set point function in board class
+2. changed the draw function in board class
+3. Added a draw home function in board class
+4. Changed the size of home array to 5
+
+Thursday 7th may 
+1. Changed the array pcs in player class of double pointers to single
+2. added and int of nops for size of pieces array in player class
+
+Saturday  9th may 
+1. changed the sequence of pushing back in players array to 1 3 4 2
+2. Added a add piece function in board class
+
+
+
+
+
+Final Bugs Left 15May
+
+
+1. Reverse animation when crossing the array from maximum index to 0
+2. Piece draw bug in the Red area
+3. Red entering home calculation bug
+4. If no moves left turn should change , instead of stuck forever bug 
+5. Missing Feature of giving multiple turns to a player in case of killing winning etc
