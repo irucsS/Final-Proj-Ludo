@@ -42,7 +42,7 @@ int main()
 	initwindow(1500, 800, "LUDO");
 	LudoGame Game;
 	srand(time(0));
-
+//	Game.Start();
 	Game.Play();
 	while (!kbhit())
 	{

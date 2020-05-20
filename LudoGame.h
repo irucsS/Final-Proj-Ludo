@@ -3,6 +3,7 @@
 #include"Dice.h"
 #include"graphics.h"
 #include"Button.h"
+#include<fstream>
 //#include"Player.h"
 #pragma once
 
@@ -67,5 +68,8 @@ public:
 	void Inital6();
 	void Print_Board_6();
 	void home_decor_for_6();
+	void Print_Options();
+	void Start();
+	void Save();
 };
 

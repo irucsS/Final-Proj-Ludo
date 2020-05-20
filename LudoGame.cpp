@@ -2,6 +2,7 @@
 #include"Player.h"
 void LudoGame::Initialize()
 {
+	tc = 0;
 	R1.ChangeIndex(Point(1150, 275));
 	R2.ChangeIndex(Point(1210, 275));
 	R3.ChangeIndex(Point(1270, 275)); 
@@ -53,8 +54,11 @@ void LudoGame::Play()
 									//selected piece is to be moved in case of six / multiple dice rolls
 			Move(Dice_Number_Select(),S);
 		} while (D.Left());
- 		Turn_Change();
-
+		if (tc == 0)
+		{
+			Turn_Change();
+		}
+		else tc--;
 	} while (Ps.size()>1);
 
 	Display_Stats();
@@ -711,7 +715,7 @@ void LudoGame::Check_Kill(int Di)
 	else 
 	{
 		MoveBoard[ind].Draw();
-		MoveBoard[ind].CP[0]->Reset();
+		MoveBoard[ind].CP[0]->Reset(); tc++;
 		MoveBoard[ind].Remove_Piece(*(MoveBoard[ind].CP[0])); Sp->HasKilled = true;
 		cout << "Inside Check Kill function's else statement" << endl;
 	}
@@ -1193,4 +1197,55 @@ void LudoGame::home_decor_for_6()
 	setfillstyle(SOLID_FILL, BLUE);
 	floodfill(cx + 50, cy - 20, YELLOW);
 }
+void LudoGame::Print_Options()
+{
+	setcolor(LIGHTGREEN);
+	setfillstyle(SLASH_FILL, LIGHTGREEN);
+	bar(150, 200, 400, 400);
+	setcolor(YELLOW);
+	setfillstyle(SLASH_FILL, YELLOW);
+	bar(550, 200, 800, 400);
+	settextstyle(3, HORIZ_DIR, 4);
+	outtextxy(165, 270, "NEW GAME");
+	setcolor(LIGHTGREEN);
+	settextstyle(3, HORIZ_DIR, 4);
+	outtextxy(610, 270, "SAVED");
+	setcolor(CYAN);
+	rectangle(100, 150, 450, 450);
+	rectangle(500, 150, 850, 450);
 
+}
+void LudoGame::Start()
+{
+	Print_Options();
+	Point S;
+	int Dim = 80;
+	while (!ismouseclick(WM_LBUTTONDOWN))
+	{
+	}
+	getmouseclick(WM_LBUTTONDOWN, S.x, S.y);
+	cout << "The mouse was clicked at: ";
+	cout << "x=" << S.x;
+	cout << " y=" << S.y << endl;
+	if (S.x > 100 && S.y > 150 && S.x < 450 && S.x < 450)
+	{
+		//Load_Board("NewGame.txt");
+	}
+	else if (S.x > 500 && S.y > 150 && S.x < 850 && S.y < 450)
+	{
+		//Load_Board("Saved.txt");
+	}
+	cleardevice();
+	//Play_On_Window();
+}
+void LudoGame::Save()
+{
+
+	ofstream Wrtr("Saved.txt");
+	/*for (int i{ 0 }; i < 13 * NOP; i++)
+	{
+		Wrtr<<MoveBoard[i].
+	}*/
+
+
+}

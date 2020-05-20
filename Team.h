@@ -18,8 +18,5 @@ public:
 	int Size();		//this tells the size of Tm
 	int PColor(int i)	//returns the color of ith player on the ith index of the tm array  
 	{
-
 	}
 	char TeamTag();
-
-};
